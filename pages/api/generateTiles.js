@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       messages: [
         {
           role: "system",
-          content: "You are a helpful assistant that generates word lists for the game Chameleon. Your response should be exactly 16 related words or short phrases on the given theme, formatted as a JSON array with a property called 'items'."
+          content: "You are a helpful assistant that generates word lists for the game Chameleon. Your response should be exactly 16 related words or short phrases on the given theme, formatted as a JSON array with a property called 'items'. Often the word will be a category and the items should be examples of that category. For example, if the theme is 'fruits', the items could be ['apple', 'banana', 'cherry', ...]. Sometimes the word might just be a theme and you need to generate a list of words generally on that theme. If all the words in your list have a common form like Dr ____ you can probably leave out the Dr."
         },
         {
           role: "user",
