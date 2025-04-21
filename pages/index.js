@@ -53,30 +53,37 @@ export default function Home() {
   return (
     <div className={`${geistSans.className} min-h-screen bg-background text-foreground flex flex-col`}>
       <Head>
-        <title>Chameleon Game</title>
-        <meta name="description" content="Chameleon game board generator" />
+        <title>Chameleon Board Generator</title>
+        <meta name="description" content="Generate custom word boards for the Chameleon game" />
       </Head>
 
       <main className="flex flex-col p-2 pb-8 w-full max-w-7xl mx-auto min-h-[95vh]">
-        <h1 className="text-3xl font-bold mb-1 text-center chameleon-text">🦎 Chameleon Game 🦎</h1>
+        <h1 className="text-3xl font-bold mb-1 text-center chameleon-text">🦎 Chameleon Board Generator</h1>
         
         <div className="w-full flex justify-center mb-4">
           <form onSubmit={handleSubmit} className="flex flex-col w-[300px]">
-            <input
-              type="text"
-              value={theme}
-              onChange={(e) => setTheme(e.target.value)}
-              placeholder="Enter a theme (e.g., Movies, Animals, Sports)"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-1 bg-white text-foreground"
-              required
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="mt-3 w-full px-6 py-2 bg-accent-1 text-white rounded-lg hover:bg-accent-2 disabled:opacity-50 transition-all font-medium"
-            >
-              {loading ? 'Generating...' : 'Generate Tiles'}
-            </button>
+            <div className="flex items-center gap-2 group">
+              <input
+                type="text"
+                value={theme}
+                onChange={(e) => setTheme(e.target.value)}
+                placeholder="Enter a theme (e.g., Movies, Animals, Sports)"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white text-gray-800 shadow-sm"
+                required
+                autoFocus
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="px-3 py-2 bg-white text-gray-800 rounded-lg hover:bg-gray-100 disabled:opacity-50 transition-all font-medium text-xl min-w-[45px] flex items-center justify-center border border-gray-300 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+                aria-label="Generate tiles"
+              >
+                {loading ? 
+                  <span className="inline-block animate-pulse text-gray-800">...</span> : 
+                  <span className="inline-block transform transition-transform group-hover:translate-x-1 text-gray-800">→</span>
+                }
+              </button>
+            </div>
           </form>
         </div>
 
