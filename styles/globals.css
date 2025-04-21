@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff;  /* White background */
+  --foreground: #212121;  /* Dark text */
+  --accent-1: #4CAF50;    /* Green */
+  --accent-2: #388E3C;    /* Darker green */
+  --accent-3: #FF9800;    /* Orange */
+  --accent-4: #7B1FA2;    /* Purple */
+  --tile-bg: #f9f9f9;     /* Very light gray for tiles */
 }
 
 @theme inline {
@@ -14,8 +19,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #121212;
+    --foreground: #f5f5f5;
+    --tile-bg: #2d2d2d;
   }
 }
 
@@ -23,4 +29,20 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(to bottom right, rgba(76, 175, 80, 0.03), rgba(123, 31, 162, 0.03));
+}
+
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(30deg); }
+  100% { filter: hue-rotate(0deg); }
+}
+
+.chameleon-text {
+  animation: colorShift 10s infinite;
+}
+
+.chameleon-border {
+  border-image: linear-gradient(45deg, var(--accent-1), var(--accent-4), var(--accent-3), var(--accent-2)) 1;
+  animation: colorShift 5s infinite;
 }
