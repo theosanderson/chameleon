@@ -58,7 +58,7 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col p-2 pb-8 w-full max-w-7xl mx-auto min-h-[95vh]">
-        <h1 className="text-3xl font-bold mb-1 text-center chameleon-text">🦎 Chameleon Board Generator</h1>
+        <h1 className="text-3xl font-bold mb-3 text-center chameleon-text">🦎 Chameleon Board Generator</h1>
         
         <div className="w-full flex justify-center mb-4">
           <form onSubmit={handleSubmit} className="flex flex-col w-[300px]">
